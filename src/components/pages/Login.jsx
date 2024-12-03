@@ -25,7 +25,7 @@ function Login() {
         return;
       } 
       try {
-        const res = await fetch("http://localhost:5000/api/login", {
+        const res = await fetch("https://ecommerce-api-d4ip.onrender.com/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function Login() {
           const cartDataItem = JSON.parse(localStorage.getItem("cartItems"));
           if(cartDataItem){
             await Promise.all(cartDataItem?.products?.map(async (item) => {
-              const response = await fetch("http://localhost:5000/api/add-to-cart", {
+              const response = await fetch("https://ecommerce-api-d4ip.onrender.com/api/add-to-cart", {
                 method: "POST",
                 headers: {
                   "auth-token": localStorage.getItem("auth-token"),  // Use the token directly
